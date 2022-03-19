@@ -32,6 +32,7 @@ func position_card_in_field(card, spawn):
 		SgConfigs.card_to_field_animation_position_time_in_seconds, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
 	yield($Tween, "tween_completed")
+	card.emit_signal("is_positioned_in_field")
 
 
 ##
