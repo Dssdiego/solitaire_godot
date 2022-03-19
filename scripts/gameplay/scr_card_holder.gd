@@ -28,7 +28,7 @@ func distribute_cards():
 	reset_spawn()
 
 func position_card_in_field(card, spawn):
-	$Tween.interpolate_property(card, "rect_position", deck_node.rect_position, spawn.position, 
+	$Tween.interpolate_property(card, "position", deck_node.rect_position, spawn.position, 
 		SgConfigs.card_to_field_animation_position_time_in_seconds, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
 	yield($Tween, "tween_completed")
