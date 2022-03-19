@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://textures/tex_table_background.png" type="Texture" id=1]
 [ext_resource path="res://prefabs/pref_deck.tscn" type="PackedScene" id=2]
 [ext_resource path="res://prefabs/pref_card_holder.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/gameplay/scr_card_holder.gd" type="Script" id=4]
 
 [node name="Main" type="Node2D"]
 
@@ -19,36 +20,6 @@ margin_left = 104.0
 margin_top = 99.0
 margin_right = 494.0
 margin_bottom = 705.0
-
-[node name="SpawnColumn" type="Position2D" parent="."]
-position = Vector2( 519, 453 )
-__meta__ = {
-"_gizmo_extents_": 30.0
-}
-
-[node name="SpawnColumn2" type="Position2D" parent="."]
-position = Vector2( 765, 453 )
-__meta__ = {
-"_gizmo_extents_": 30.0
-}
-
-[node name="SpawnColumn3" type="Position2D" parent="."]
-position = Vector2( 1018, 453 )
-__meta__ = {
-"_gizmo_extents_": 30.0
-}
-
-[node name="SpawnColumn4" type="Position2D" parent="."]
-position = Vector2( 1267, 453 )
-__meta__ = {
-"_gizmo_extents_": 30.0
-}
-
-[node name="SpawnColumn5" type="Position2D" parent="."]
-position = Vector2( 1528, 453 )
-__meta__ = {
-"_gizmo_extents_": 30.0
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 875.0
@@ -76,3 +47,42 @@ rect_scale = Vector2( 1, 1 )
 margin_left = 1320.0
 margin_right = 1710.0
 rect_scale = Vector2( 1, 1 )
+
+[node name="CardHolder" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="CardHolder"]
+
+[node name="Spawns" type="Node2D" parent="CardHolder"]
+
+[node name="SpawnColumn" type="Position2D" parent="CardHolder/Spawns"]
+position = Vector2( 519, 453 )
+__meta__ = {
+"_gizmo_extents_": 30.0
+}
+
+[node name="SpawnColumn2" type="Position2D" parent="CardHolder/Spawns"]
+position = Vector2( 765, 453 )
+__meta__ = {
+"_gizmo_extents_": 30.0
+}
+
+[node name="SpawnColumn3" type="Position2D" parent="CardHolder/Spawns"]
+position = Vector2( 1018, 453 )
+__meta__ = {
+"_gizmo_extents_": 30.0
+}
+
+[node name="SpawnColumn4" type="Position2D" parent="CardHolder/Spawns"]
+position = Vector2( 1267, 453 )
+__meta__ = {
+"_gizmo_extents_": 30.0
+}
+
+[node name="SpawnColumn5" type="Position2D" parent="CardHolder/Spawns"]
+position = Vector2( 1528, 453 )
+__meta__ = {
+"_gizmo_extents_": 30.0
+}
+
+[node name="Cards" type="Node2D" parent="CardHolder"]

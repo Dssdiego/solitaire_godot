@@ -21,7 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Solitaire"
+run/main_scene="res://scenes/scn_main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+SgConfigs="*res://scripts/singletons/sg_configs.gd"
 
 [display]
 
