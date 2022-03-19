@@ -3,6 +3,7 @@ extends TextureRect
 signal is_positioned_in_field
 
 var is_selected = false
+var is_shown = false
 var can_drag = false
 
 var initial_card_position = Vector2.ZERO
@@ -33,8 +34,6 @@ func reset_position_to_field():
 	$Tween.interpolate_property(self, "rect_position", rect_position, initial_card_position, 
 		SgConfigs.card_to_field_animation_position_time_in_seconds, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
-	
-#	rect_position = initial_card_position
 
 ##
 ## UI
@@ -42,6 +41,7 @@ func reset_position_to_field():
 
 func update_ui():
 	$Selected.visible = is_selected
+	$Back.visible = !is_shown
 
 ##
 ## Click & Drag
@@ -64,6 +64,8 @@ func on_card_release_click():
 
 func _on_card_in_field():
 	initial_card_position = rect_position
+	is_shown = true
+	update_ui()
 
 func _on_Card_gui_input(event):
 	if event is InputEventMouseButton:
