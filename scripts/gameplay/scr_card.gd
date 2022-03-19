@@ -52,6 +52,7 @@ func on_card_click():
 	can_drag = true
 #	initial_click_position = get_global_mouse_position()
 #	print(initial_click_position)
+	raise() # NOTE: This will break when moving multiple cards
 	update_ui()
 
 func on_card_release_click():
